@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     // set custom id to avoid confusion with parent comment _id
     username: {
-      type: string,
+      type: String,
       unique: true,
       required: true,
       trim: true,
@@ -14,22 +14,21 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      validate: [validateEmail],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/] // must match a valid email address
     },
-    thoughts: {
-      type: [{Schema.Types.ObjectId, ref: 'Thought'}],
-    },
-    friends: {
-      type: [{Schema.Type.ObjectId, ref: 'User' }]
-    }
+    thoughts: [
+      {type: Schema.Types.ObjectId, ref: 'Thought'},
+    ],
+    friends: [
+      {type: Schema.Types.ObjectId, ref: 'User' },
+      ],
   },
 );
 
-UserSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
 
-const User = model('User', UserSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
