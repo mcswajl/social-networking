@@ -1,77 +1,104 @@
-const { Thought, User, Reaction } = require('../models');
+const { User, Reaction } = require('../models');
 
 const userController = {
-  // add thought to p
-  addUser({ params, body }, res) {
+
+getAllUsers(reg, res) {
+  User.find({})
+      .populate({
+        path: 'reactions',
+        select: '-__v'
+      })
+      .select('-__v')
+      .sort({ _id: -1 })
+      .then(dbUserData => res.json(dbUserData))
+      .catch(err => {
+        console.log(err);
+        res.sendStatus(400);
+    })
+  },
+
+  getUserById({ params }, res) {
+    User.findOne({ _id: params.id })
+    .populate({
+      path: 'thought',
+      select: '-__v'
+    })
+    .select('-__v')
+    .then(dbThoughtData => res.json(dbThoughtData))
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(400);
+      })
+    },
+
+  // add user
+  createUser({ params, body }, res) {
+    User.create(body)
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => res.json(err));
     console.log(params);
-    Comment.create(body)
-      .then(({ _id }) => {
-        return Iser.findOneAndUpdate(
-          { _id: params.pizzaId },
-          { $push: { comments: _id } },
-          { new: true }
-        );
-      })
-      .then(dbUserData => {
-        console.log(dbUserData);
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id!' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => res.json(err));
   },
 
-  // add reply to reaction
-  addReply({ params, body }, res) {
-    reaction.findOneAndUpdate(
-      { _id: params.commentId },
-      { $push: { replies: body } },
-      { new: true, runValidators: true }
-    )
-      .then(dbUserData => {
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id!' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => res.json(err));
+  // update user
+  updateUserById({params, body}, res) {
+    userController.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No User found with this id!' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => res.json(err));
+},
+
+  
+  // delete user
+  deleteUserById({params, body}, res) {
+    userController.findOneAndDelete({ _id: params.id }, body, { new: true, runValidators: true })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No User found with this id!' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => res.json(err));
+},
+
+
+  // add friend 
+  createFriend({ params, body }, res) {
+    User.findOneAndUpdate({_id: params.userId}, 
+      {$push: {reactions: body}}, 
+      {new: true, runValidators: true})
+    .populate({path: 'reactions', select: '-__v'})
+    .select('-__v')
+    .then(dbUserData => {
+    if (!dbUserData) {
+        res.status(404).json({message: 'No User with this particular ID!'});
+        return;
+    }
+    res.json(dbUserData);
+    })
+    .catch(err => res.status(400).json(err))
   },
 
-  // remove comment
-  removeReaction({ params }, res) {
-    Reaction.findOneAndDelete({ _id: params.commentId })
-      .then(deletedComment => {
-        if (!deletedComment) {
-          return res.status(404).json({ message: 'No reaction with this id!' });
-        }
-        return Reaction.findOneAndUpdate(
-          { _id: params.reactionId },
-          { $pull: { comments: params.commentId } },
-          { new: true }
-        );
-      })
-      .then(dbReactionData => {
-        if (!dbReactionData) {
-          res.status(404).json({ message: 'No reaction found with this id!' });
-          return;
-        }
-        res.json(dbReactionData);
-      })
-      .catch(err => res.json(err));
+  deleteFriend({ params, body }, res) {
+    User.findOneAndUpdate({_id: params.userId}, 
+      {$pull: {reactions: body}}, 
+      {new: true, runValidators: true})
+    .populate({path: 'reactions', select: '-__v'})
+    .select('-__v')
+    .then(dbUserData => {
+    if (!dbUserData) {
+        res.status(404).json({message: 'No User with this particular ID!'});
+        return;
+    }
+    res.json(dbUserData);
+    })
+    .catch(err => res.status(400).json(err))
   },
-  // remove reaction
-  removeReply({ params }, res) {
-    Reaction.findOneAndUpdate(
-      { _id: params.commentId },
-      { $pull: { replies: { replyId: params.replyId } } },
-      { new: true }
-    )
-      .then(dbReactionData => res.json(dbReactionData))
-      .catch(err => res.json(err));
-  }
 };
 
 module.exports = userController;
