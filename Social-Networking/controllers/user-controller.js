@@ -87,7 +87,7 @@ getAllUsers(reg, res) {
 
   deleteFriend({ params, body }, res) {
     User.findOneAndUpdate({_id: params.userId}, 
-      {$pull: {friends: body.friends}}, 
+      {$pull: {friends: params.friendId}}, 
       {new: true, runValidators: true})
     .populate({path: 'friends', select: '-__v'})
     .select('-__v')
