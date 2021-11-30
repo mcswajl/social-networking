@@ -1,11 +1,13 @@
+
+
+# Challenge number 18: Social Network API
+
 <p align="center">
    <img src="https://img.shields.io/badge/MongoDB-blue"  />
   <img src="https://img.shields.io/badge/mongoose-red"  />
     <img src="https://img.shields.io/badge/javascript-yellow" />
     <img src="https://img.shields.io/badge/express-orange" />
 </p>
-
-# Challenge number 18: Social Network API
 
 In thi challenge we learned about MongoDB and its speed with large amounts of data and flexibility with unstructured data. This is the first step in the MERN stack that we will be learning over the last part of this course. We will be using several technologies that social networking platforms use in their full-stack applications. The most important lesson here is to make sure we understand how to build and structure MongoDB and Mongoose.
 
