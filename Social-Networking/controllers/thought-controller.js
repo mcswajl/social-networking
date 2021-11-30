@@ -61,7 +61,8 @@ const thoughtController = {
 
   // add reaction
   createReaction({params, body}, res) {
-    Thought.findOneAndUpdate({_id: params.thoughtId}, 
+    Thought.findOneAndUpdate(
+      {_id: params.thoughtId}, 
       {$push: {reactions: body}}, 
       {new: true, runValidators: true})
     .populate({path: 'reactions', select: '-__v'})
@@ -79,8 +80,9 @@ const thoughtController = {
 
 // Delete a reaction by ID
 deleteReaction({params, body}, res) {
+  console.log(params)
     Thought.findOneAndUpdate({_id: params.thoughtId}, 
-      {$pull: {reactions: params.reactionId}}, 
+      {$pull: {reactions: {_id: params.reactionId}}}, 
       {new : true, runValidators: true})
     .populate({path: 'reactions', select: '-__v'})
     .select('-__v')

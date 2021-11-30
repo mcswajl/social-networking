@@ -5,11 +5,11 @@ const dateFormat = require('../utils/dateFormat');
 const reactionSchema = new Schema(
   {
     // set custom id to avoid confusion with parent comment _id
-    reactionId: {
+    // reactionId: {
       // mongoose.ObjectId !== mongoose.Types.ObjectId,
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId()
-    },
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId()
+    // },
 
     reactionBody: {
       type: String,
