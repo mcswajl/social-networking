@@ -49,7 +49,7 @@ The first animation shows GET routes to return all users and all thoughts being 
 ## Screencastify video
 [Homework Demo 01 (video)](https://watch.screencastify.com/v/GADmRQjz7txtx7kKHYAh)
 ## GIF of same file
-[GIF](./assests/First_Animation.gif)
+![Click here for GIF](./assests/First_Animation.gif)
 
 The second animation shows GET routes to return a single user and a single thought being tested in Insomnia Core:
 
