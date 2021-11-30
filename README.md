@@ -1,5 +1,9 @@
-[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
-
+<p align="center">
+   <img src="https://img.shields.io/badge/MongoDB-blue"  />
+  <img src="https://img.shields.io/badge/mongoose-red"  />
+    <img src="https://img.shields.io/badge/javascript-yellow" />
+    <img src="https://img.shields.io/badge/express-orange" />
+</p>
 
 # Challenge number 18: Social Network API
 
