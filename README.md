@@ -1,10 +1,14 @@
-<<<<<<< HEAD
-[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
-
-
 # Challenge number 18: Social Network API
 
-In thi challenge we learned about MongoDB and its speed with large amounts of data and flexibility with unstructured data. This is the first step in the MERN stack that we will be learning over the last part of this course. We will be using several technologies that social networking platforms use in their full-stack applications. The most important lesson here is to make sure we understand how to build and structure MongoDB and Mongoose.
+<p align="center">
+    <img src="https://img.shields.io/badge/MongoDB-blue"  />
+    <img src="https://img.shields.io/badge/mongoose-red" />
+    <img src="https://img.shields.io/badge/javascript-yellow" />
+    <img src="https://img.shields.io/badge/express-orange" />
+ />
+</p>
+
+In this challenge we learned about MongoDB and its speed with large amounts of data and flexibility with unstructured data. This is the first step in the MERN stack that we will be learning over the last part of this course. We will be using several technologies that social networking platforms use in their full-stack applications. The most important lesson here is to make sure we understand how to build and structure MongoDB and Mongoose.
 
 My challenge is to build an API for a social network using Express.js for routing, a MongoDB database, and the Mongoose ODM. I will be using the [Express](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, and native JavaScript `Date` object to format timestamps.
 
