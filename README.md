@@ -49,21 +49,21 @@ The first animation shows GET routes to return all users and all thoughts being 
 ## Screencastify video
 [Homework Demo 01 (video)](https://watch.screencastify.com/v/GADmRQjz7txtx7kKHYAh)
 ## GIF of same file
-![Click here for GIF](/assests/First_Animation.gif)
+![Click here for GIF](./Social-Networking/assests/First_Animation.gif)
 
 The second animation shows GET routes to return a single user and a single thought being tested in Insomnia Core:
 
 ## Screencastify video
 [Homework Demo 02 (video)](https://watch.screencastify.com/v/XEaNRLP2qanXbZrItgJa)
 ## GIF of same file
-![Screenshot](./assests/Second_Animation.gif)
+![Screenshot](./Social-Networking/assests/Second_Animation.gif)
 
 The third animation shows the POST, PUT, and DELETE routes for users being tested in Insomnia Core:
 
 ## Screencastify video
 [Homework Demo 03 (video)](https://watch.screencastify.com/v/vYM4TKvylIOw0iVhHcah)
 ## GIF of same file
-![Screenshot](./assests/Third_Animation.gif)
+![Screenshot](./Social-Networking/assests/Third_Animation.gif)
 
 Your walkthrough video should also show the POST, PUT, and DELETE routes for thoughts being tested in Insomnia Core.
 
@@ -72,7 +72,7 @@ The final animation shows the POST and DELETE routes for a user’s friend list 
 ## Screencastify video
 [Homework Demo 04 (video)](https://watch.screencastify.com/v/I2TovB1C40M4Nn8GZk6p)
 ## GIF of same file
-![Screenshot](./assests/Forth_Animation.gif)
+![Screenshot](./Social-Networking/assests/Forth_Animation.gif)
 
 Your walkthrough video should also show the POST and DELETE routes for reactions to thoughts being tested in Insomnia Core.
 
